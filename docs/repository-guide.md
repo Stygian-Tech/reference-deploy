@@ -15,7 +15,7 @@ All repos live under the [Stygian-Tech](https://github.com/Stygian-Tech) GitHub 
 ```mermaid
 flowchart TB
   subgraph foundations [Foundation packages]
-    core[atproto-primitives]
+    core[atproto-primitive-kit]
     atproto[atproto-auth-kit]
     gateway[gateway-trust-kit]
     content[federation-content-kit]
@@ -66,7 +66,7 @@ flowchart TB
 
 These repos hold **generic ATProto infrastructure** with no product-specific UI or Social Wire/L@tr business rules. Other packages and services depend on them; they must not depend on product repos.
 
-### [atproto-primitives](https://github.com/Stygian-Tech/atproto-primitives)
+### [atproto-primitive-kit](https://github.com/Stygian-Tech/atproto-primitive-kit)
 
 **Purpose:** Lowest-level shared primitives for all Stygian Swift packages.
 
@@ -85,7 +85,7 @@ These repos hold **generic ATProto infrastructure** with no product-specific UI 
 
 ### [atproto-auth-kit](https://github.com/Stygian-Tech/atproto-auth-kit)
 
-**Purpose:** ATProto client and auth foundations — the layer above `atproto-primitives` for talking to PDSes and verifying OAuth/DPoP.
+**Purpose:** ATProto client and auth foundations — the layer above `atproto-primitive-kit` for talking to PDSes and verifying OAuth/DPoP.
 
 **Contains (initial extraction):**
 - `DPoPHtu` — RFC 9449 `htu` construction (query stripped, respects `X-Forwarded-Proto` behind Fly TLS)
@@ -96,7 +96,7 @@ These repos hold **generic ATProto infrastructure** with no product-specific UI 
 
 **Used by:** Gateway reference services, future `gateway-trust-kit` consumers, any Swift app doing ATProto OAuth.
 
-**Depends on:** `atproto-primitives`, Hummingbird, NIO (for request types in DPoP helpers).
+**Depends on:** `atproto-primitive-kit`, Hummingbird, NIO (for request types in DPoP helpers).
 
 ---
 
@@ -111,7 +111,7 @@ These repos hold **generic ATProto infrastructure** with no product-specific UI 
 
 **Used by:** `social-wire-reference` gateway, future extracted Social Wire gateway code.
 
-**Depends on:** `atproto-primitives`, `atproto-auth-kit`, swift-crypto.
+**Depends on:** `atproto-primitive-kit`, `atproto-auth-kit`, swift-crypto.
 
 ---
 
@@ -127,7 +127,7 @@ These repos hold **generic ATProto infrastructure** with no product-specific UI 
 
 **Used by:** AppView worker, publication discovery, thumbnail/avatar normalization.
 
-**Depends on:** `atproto-primitives`.
+**Depends on:** `atproto-primitive-kit`.
 
 ---
 
@@ -137,7 +137,7 @@ These repos hold **generic ATProto infrastructure** with no product-specific UI 
 
 **Status:** Placeholder package only — no production dependency yet.
 
-**Depends on:** `atproto-primitives`.
+**Depends on:** `atproto-primitive-kit`.
 
 ---
 
@@ -147,7 +147,7 @@ These repos hold **generic ATProto infrastructure** with no product-specific UI 
 
 **Status:** Placeholder package only.
 
-**Depends on:** `atproto-primitives`.
+**Depends on:** `atproto-primitive-kit`.
 
 ---
 
@@ -229,7 +229,7 @@ Everything related to **publication reading**, AppView projections, bootstrap st
 
 **Status:** Scaffold only (`ThinAppViewCore` stub). APIs marked experimental until OpenAPI + fixtures stabilize.
 
-**Depends on:** `atproto-primitives`.
+**Depends on:** `atproto-primitive-kit`.
 
 ---
 
@@ -310,7 +310,7 @@ Everything related to **publication reading**, AppView projections, bootstrap st
 
 ## GitHub links (all public)
 
-- https://github.com/Stygian-Tech/atproto-primitives
+- https://github.com/Stygian-Tech/atproto-primitive-kit
 - https://github.com/Stygian-Tech/atproto-auth-kit
 - https://github.com/Stygian-Tech/gateway-trust-kit
 - https://github.com/Stygian-Tech/federation-content-kit
